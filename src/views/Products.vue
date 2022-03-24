@@ -1,8 +1,9 @@
 <template>
-  <div class="row">
-    <div class="col-md-3 col-sm-6">
-        <div class="product-grid">
-        <div v-for="product in products" :key="product.id"> 
+
+ <div class="row" >
+    <div class="col-md-3 col-sm-6" v-for="product in content" :key="product._id">
+        <div class="product-grid" >
+        <div> 
             <div class="product-image">
                 <div class="image">
                     <img :src="product.img" class="card-img-top" alt="" />
@@ -11,99 +12,44 @@
             <div class="product-content">
                 <h3 class="title"><div>{{ product.name }}</div></h3>
                 <h4 class="title"><div>{{ product.description }}</div></h4>
-                <span class="product-category"><div>{{ product.anime }}</div></span>
-                <div class="price">R{{product.price}}</div>
+                <h3 class="product-category"><div>{{ product.anime }}</div></h3>
+                <div class="price">{{product.price}}</div>
                 <a href="#" class="add-to-cart"><i class="fas fa-cart-plus"></i> Add to cart</a>
             </div>
             </div>
         </div>
     </div>
 </div>
+
+ 
 </template>
 
 <script>
+import UserService from "../services/user.service.js"
 export default {
-  components: {
+  name:"product",
   
-  },
   data() {
     return {
-      product: null,
-      search: "",
-      isModalVisible: false,
-      isadmin: false,
-      selected: "",
+      content:"",
     };
   },
-  methods: {
-   
-  },
   mounted() {
-    fetch("https://ecomsbackend.herokuapp.com/products", {
-      method: "GET",
-      headers: {
-        "Content-type": "application/json; charset=UTF-8",
+    this.loading = true;
+    UserService.getPublicContent().then(
+      (response) => {
+        this.content = response.data;
+        this.loading = false;
       },
-    })
-      .then((response) => response.json())
-      .then((json) => {
-        this.product = json;
-        if (localStorage.getItem("jwt")) {
-          fetch("https://ecomsbackend.herokuapp.com/auth/", {
-            method: "GET",
-            headers: {
-              "Content-type": "application/json; charset=UTF-8",
-              Authorization: `x-access-token ${localStorage.getItem("jwt")}`,
-            },
-          })
-            .then((response) => response.json())
-            .then((json) => {
-              if (json.isadmin == true) {
-                alert("You are admin");
-                this.isadmin = json.isadmin;
-              }
-            })
-            .catch((err) => {
-              alert(err);
-            });
-        }
-      })
-      .catch((err) => {
-        alert(err);
-        console.log(err);
-      });
-  },
-  computed: {
-    filterProducts: function () {
-      let filtered = this.product
-      if (this.selected == '') {
-          filtered = filtered.filter((product) => {
-           return product.category.match(this.selected) ;
-          
-        });
-        if(this.search){
-          filtered = filtered.filter((product) =>{
-            return product.title.match(this.search)
-          })
-        }
-        return filtered
+      (error) => {
+        this.content =
+          (error.response &&
+            error.response.data &&
+            error.response.data.message) 
+          error.message 
+          error.toString();
       }
-      if (this.selected) {
-        filtered = filtered.filter((product) => {
-           return product.category.match(this.selected) ;
-          
-        });
-        if(this.search){
-          filtered = filtered.filter((product) =>{
-            return product.title.match(this.search)
-          })
-        }
-        return filtered
-        
-      }
-  
-      
-    },
+    );
   },
 };
 </script>
@@ -115,11 +61,11 @@ export default {
 .product-grid{
     font-family: 'Montserrat', sans-serif;
     text-align: center;
-    border: 3px dashed #f2f2f2;
+    border: 3px solid #f2f2f2;
     border-radius: 5px;
     transition: all .4s ease-in-out;
 }
-.product-grid:hover{ border-color: #c6202e; }
+.product-grid:hover{ border-color:  #89d8f0; }
 .product-grid .product-image{ position: relative; }
 .product-grid .product-image a.image{ display: block; }
 .product-grid .product-image img{
@@ -206,10 +152,10 @@ export default {
     transition: all 0.3s ease 0s;
 }
 .product-grid .product-category{
-    font-size: 13px;
     text-transform: capitalize;
     margin: 0 0 10px;
     display: block;
+    color: black;
 }
 .product-grid .product-category a{
     color: #828282;
@@ -218,7 +164,7 @@ export default {
 .product-grid .title a:hover,
 .product-grid .product-category a:hover{ color: #c6202e; }
 .product-grid .price{
-    color: #c6202e;
+    color: black;
     font-size: 18px;
     font-weight: 700;
     margin: 0 0 10px;
@@ -237,8 +183,8 @@ export default {
 }
 .product-grid .add-to-cart:hover,
 .product-grid:hover .add-to-cart{
-    color: #fff;
-    background: #89d8f0;
+    color: #89d8f0;
+    background: black;
     border-color: #c6202e;
 }
 @media screen and (max-width: 990px){

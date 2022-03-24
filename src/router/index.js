@@ -6,6 +6,8 @@ import Cart from '../views/Cart.vue'
 import Profile from '../views/Profile.vue'
 import Products from '../views/Products.vue'
 import Contact from '../views/Contact.vue'
+import About from '../views/About.vue'
+const BoardAdmin = () => import("../views/BoardAdmin.vue")
 
 const routes = [
   {
@@ -17,6 +19,11 @@ const routes = [
     path: '/Login',
     name: 'Login',
     component: Login
+  },
+  {
+    path: '/About',
+    name: 'About',
+     component: About
   },
   {
     path: '/Register',
@@ -32,6 +39,11 @@ const routes = [
     path: '/Products',
     name: 'Products',
      component:Products
+  },
+  {
+    path: '/Admin',
+    name: 'Admin',
+     component: BoardAdmin
   },
   {
     path: '/Contact',
@@ -50,7 +62,7 @@ const router = createRouter({
   routes
 })
 router.beforeEach((to, from, next) => {
-  const publicPages = ['/Login','/Register','/',];
+  const publicPages = ['/Login','/Register','/','/About'];
   const authRequired = !publicPages.includes(to.path);
   const loggedIn = localStorage.getItem('user');
 

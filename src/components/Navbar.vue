@@ -7,12 +7,16 @@
     <nav class="nav">
         
       <li><router-link to="/">Home</router-link></li>
+      <li><router-link :to="{ name: 'About'}">About</router-link></li>
       <li><router-link :to="{ name:'Login'}">Login</router-link></li>
       <li><router-link :to="{ name: 'Register'}">Register</router-link></li>
       <li><router-link :to="{  name:'Products'}">Products</router-link></li>
       <li><router-link :to="{  name:'Profile'}">Profile</router-link></li>
       <li><router-link :to="{ name: 'Contact'}">Contact</router-link></li>
       <li><router-link :to="{ name: 'Cart'}">Cart</router-link></li>
+      <div v-if="showAdminBoard">
+      <li><router-link :to="{ name: 'Admin'}">Admin Board</router-link></li>
+      </div>
       <li><button class="btn" v-if="currentUser" @click="logOut">Logout</button></li>
     </nav>
   </div>
@@ -24,6 +28,7 @@
   <div class="mobile-nav">
     <nav class="m-nav">
         <li><router-link class="mobile" to="/">Home</router-link></li>
+        <li><router-link class="mobile" :to="{ name:'About'}">About</router-link></li>
       <li><router-link class="mobile" :to="{ name:'Login'}">Login</router-link></li>
       <li><router-link class="mobile" :to="{ name: 'Register'}">Register</router-link></li>
       <li><router-link class="mobile" :to="{  name:'Products'}">Porducts</router-link></li>
