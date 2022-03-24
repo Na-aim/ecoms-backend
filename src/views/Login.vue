@@ -4,18 +4,97 @@
 		<div class="logo">
 			<h1>#</h1>
 		</div>
-		<form action="#">
-			<input type="username" placeholder="username" autocomplete="off" required>	<i class="fa fa-user"></i>
-			<input type="password" placeholder="password" autocomplete="off" required>	<i class="fa fa-lock"></i>
-			<input type="submit" value="Log In">
-			<h4>Not Registered?<a href="#Register"> Create an Account</a></h4>
-		</form>
+		<Form @submit="handleLogin" :validation-schema="schema">
+ 
+        <div class="form-group">
+                    <label class="form-label" id="nameLabel" for="name"></label>
+                    <!-- <Field type="text" class="form-control" id="name" name="customername"  tabindex="1" /> -->
+                    <Field name="username" type="text" class="form-control" placeholder="Username" /> <i class="fa fa-user"></i>
+                    <ErrorMessage name="yourname" class="error-feedback" />
+                    
+                </div>
+                <div class="form-group">
+                    <label class="form-label" id="subjectLabel" for="sublect"></label>
+                    <!-- <Field type="text" class="form-control" id="subject" name="password"  tabindex="3"/> -->
+                    <Field name="password" type="password" class="form-control" placeholder="Password" /> <i class="fa fa-lock"></i>
+                    <ErrorMessage name="password" class="error-feedback"/>
+                </div>
+                <div class="form-group">
+                <div class=" b text-center margin-top-25">
+                    <button class="btn btn-mod btn-border btn-large" :disabled="loading">
+                      LOGIN
+                    </button>
+
+                </div>
+                </div>	
+                <div class="form-group">
+            <div v-if="message" class="alert alert-danger" role="alert">
+                {{message}}
+            </div>
+            
+        </div>
+        <div class="signUp">
+            
+             <h4> Don't have an account yet?<router-link :to="{ name: 'Register'}"> Sign Up</router-link></h4>
+        </div>
+        
+       
+      </Form>
 	</div>
 </div>
-</template>
-
+</template>	
 <script>
+import { Form, Field, ErrorMessage } from "vee-validate";
+import * as yup from "yup";
 
+export default {
+  name: "Login",
+  components: {
+    Form,
+    Field,
+    ErrorMessage,
+  },
+  data() {
+    const schema = yup.object().shape({
+    username: yup.string().required("username is required"),
+    password: yup.string().required("Password is required")
+    });
+    return {
+      loading: false,
+      message: "",
+      schema,
+    };
+  },
+  computed: {
+    loggedIn() {
+      return this.$store.state.auth.status.loggedIn;
+    },
+  },
+   created() {
+    if (this.loggedIn) {
+      this.$router.push("/Profile");
+    }
+  },
+  methods: {
+    handleLogin(user) {
+      this.loading = true;
+      this.$store.dispatch("auth/login", user).then(
+        () => {
+          this.$router.push("/Profile");
+        },
+        (error) => {
+          this.loading = false;
+          this.message =
+            (error.response &&
+              error.response.data &&
+              error.response.data.message) ||
+            error.message ||
+            error.toString();
+        }
+      );
+    },
+  },
+};
 </script>
 
 <style scoped>
@@ -50,14 +129,14 @@
 	-webkit-box-shadow: 0 0 100px #89d8f0;
 	        box-shadow: 0 0 100px #89d8f0;
 	background: #89d8f0;  
-	background: -webkit-linear-gradient(to right, #fa3380, #89d8f0);  
-	background: linear-gradient(to right, #fa3380, #89d8f0); 
+	background: -webkit-linear-gradient(to right, #1C86EE, #89d8f0);  
+	background: linear-gradient(to right, #1C86EE, #89d8f0); 
 
 }
 .logo:hover {
 	-webkit-animation: rotation 0.9s infinite linear;
-	-webkit-box-shadow: 0 0 10px #fa3380;
-	        box-shadow: 0 0 10px #fa3380;
+	-webkit-box-shadow: 0 0 10px #1C86EE;
+	        box-shadow: 0 0 10px #1C86EE;
 }
 .logo h1 {
 	color: #fff;
@@ -65,11 +144,11 @@
 	font-weight: 200;
 	line-height: 100px;
 }
-form {
+Form {
 	top: 100px;
 	position: relative;
 }
-form input {
+.form-group {
 	display: block;
 	margin: 10px auto;
 }
@@ -86,13 +165,13 @@ h4 a {
 	transition: 200ms ease-in-out;
 }
 h4 a:hover {
-	color: #000;
+	color: #1C86EE;
 }
-input[type='username'], input[type='password'] {
+.Field[name="yourname"], .Field[name="password"] {
 	width: 60%;
 	outline: none;
 	border-top: 0;
-	color: #89d8f0;
+	color: #1C86EE;
 	border-left: 0;
 	border-right: 0;
 	font-size: 14px;
@@ -102,7 +181,7 @@ input[type='username'], input[type='password'] {
 }
 
 
-input[type='submit'] {
+.log {
 	color: #fff;
 	width: 150px;
 	height: 50px;
@@ -115,15 +194,15 @@ input[type='submit'] {
 	transition: 200ms ease-out;
 	-webkit-box-shadow: 0 0 10px #89d8f0;
 	        box-shadow: 0 0 10px #89d8f0;
-	background: #89cff0; 
-	background: -webkit-linear-gradient(to right, #89e0f0, #89d8f0);  
-	background: linear-gradient(to right, #89e0f0, #89d8f0); 
+	background: #89d8f0; 
+	background: -webkit-linear-gradient(to right, #89e0f0, #1C86EE);  
+	background: linear-gradient(to right, #89e0f0, #1C86EE); 
 }
-input[type='submit']:hover {
+.log :hover {
 	width: 155px;
 	height: 52px;
 	transform: scale(1.1);
-	box-shadow: 0 0 40px #fa3380;
+	box-shadow: 0 0 40px #89d8f0;
 }
 .fa-user {
 	color: #89d8f0;
@@ -155,7 +234,7 @@ input[type='submit']:hover {
 }
 
 
-[placeholder]::-webkit-input-placeholder  {
+[placeholder]::-webkit-input-placeholder {
 	color: #89d8f0;
 	padding-left: 10px;
 }

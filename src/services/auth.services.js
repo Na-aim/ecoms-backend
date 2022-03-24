@@ -1,12 +1,12 @@
 import axios from "axios";
-const API_URL = "https://american-sterns.herokuapp.com/users/";
+const API_URL = "https://ecomsbackend.herokuapp.com/api/auth/";
 class AuthService {
   async login(user) {
     console.log(user)
     console.log(API_URL + "signin")
     return axios
       .post(API_URL + "signin", {
-        name: user.name,
+        username: user.username,
         password: user.password,
       })
       .then((response) => {
@@ -24,7 +24,7 @@ class AuthService {
     console.log(API_URL + "signup")
 
     return axios.post(API_URL + "signup", {
-      name: user.name,
+      username: user.username,
       email: user.email,
       password: user.password,
     });

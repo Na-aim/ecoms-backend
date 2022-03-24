@@ -9,10 +9,11 @@
       <li><router-link to="/">Home</router-link></li>
       <li><router-link :to="{ name:'Login'}">Login</router-link></li>
       <li><router-link :to="{ name: 'Register'}">Register</router-link></li>
-      <li><router-link :to="{  name:'Products'}">Porducts</router-link></li>
+      <li><router-link :to="{  name:'Products'}">Products</router-link></li>
       <li><router-link :to="{  name:'Profile'}">Profile</router-link></li>
       <li><router-link :to="{ name: 'Contact'}">Contact</router-link></li>
       <li><router-link :to="{ name: 'Cart'}">Cart</router-link></li>
+      <li><button class="btn" v-if="currentUser" @click="logOut">Logout</button></li>
     </nav>
   </div>
   <div class="menu-container">
@@ -36,16 +37,22 @@
 
 <script>
 export default {
-
+   computed: {
+    currentUser() {
+      return this.$store.state.auth.user;
+    },
+  },
+  methods: {
+    logOut() {
+      this.$store.dispatch('auth/logout');
+      this.$router.push('/login');
+    }
+  }
 }
 </script>
 
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700&display=swap');
-
-:root{
---main-color:#e33428;
-}
 
 *{
 font-family: 'Roboto', sans-serif;
@@ -53,7 +60,6 @@ margin:0; padding:0;
 box-sizing: border-box;
 outline: none; border:none;
 text-decoration: none;
-
 transition: all .3s linear;
 line-height: 1.5;
 }
@@ -64,7 +70,7 @@ scroll-behavior: smooth;
 }
 
 body {
-background:#fcf2e8;
+background:#ffffff;
 /* padding-left: 10rem;
 padding-right: 10rem */
 }
@@ -80,7 +86,7 @@ padding-right: 10rem */
   justify-content: flex-start;
   margin-top: 0%;
   width: 100%;
-  background: linear-gradient(to right,  #89d8f0, #89b5f0);
+  background:#89d8f0;
   position: fixed;
   z-index: 10;
   transition: 0.3s ease-in-out;
@@ -165,7 +171,7 @@ padding-right: 10rem */
 }
 
 nav a:hover {
-  color: black;
+  color: #1C86EE;
 }
 
 .mobile-nav {

@@ -2,162 +2,19 @@
   <div class="row">
     <div class="col-md-3 col-sm-6">
         <div class="product-grid">
+        <div v-for="product in products" :key="product.id"> 
             <div class="product-image">
-                <a href="#" class="image">
-                    <img src="https://i.postimg.cc/rmZCfrYF/itache-hood.webp">
-                </a>
-                <ul class="product-links">
-                    <li><a href="#" data-tip="Add to Wishlist"><i class="fas fa-heart"></i></a></li>
-                    <li><a href="#" data-tip="Compare"><i class="fa fa-random"></i></a></li>
-                    <li><a href="#" data-tip="Quick View"><i class="fa fa-eye"></i></a></li>
-                </ul>
+                <div class="image">
+                    <img :src="product.img" class="card-img-top" alt="" />
+                </div>
             </div>
             <div class="product-content">
-                <h3 class="title"><a href="#">women's Top</a></h3>
-                <span class="product-category"><a href="#">women's</a></span>
-                <div class="price">$55.55</div>
+                <h3 class="title"><div>{{ product.name }}</div></h3>
+                <h4 class="title"><div>{{ product.description }}</div></h4>
+                <span class="product-category"><div>{{ product.anime }}</div></span>
+                <div class="price">R{{product.price}}</div>
                 <a href="#" class="add-to-cart"><i class="fas fa-cart-plus"></i> Add to cart</a>
             </div>
-        </div>
-    </div>
-    <div class="col-md-3 col-sm-6">
-        <div class="product-grid">
-            <div class="product-image">
-                <a href="#" class="image">
-                    <img src="https://i.postimg.cc/rmZCfrYF/itache-hood.webp">
-                </a>
-                <ul class="product-links">
-                    <li><a href="#" data-tip="Add to Wishlist"><i class="fas fa-heart"></i></a></li>
-                    <li><a href="#" data-tip="Compare"><i class="fa fa-random"></i></a></li>
-                    <li><a href="#" data-tip="Quick View"><i class="fa fa-eye"></i></a></li>
-                </ul>
-            </div>
-            <div class="product-content">
-                <h3 class="title"><a href="#">women's Top</a></h3>
-                <span class="product-category"><a href="#">women's</a></span>
-                <div class="price">$55.55</div>
-                <a href="#" class="add-to-cart"><i class="fas fa-cart-plus"></i> Add to cart</a>
-            </div>
-        </div>
-    </div>
-    <div class="col-md-3 col-sm-6">
-        <div class="product-grid">
-            <div class="product-image">
-                <a href="#" class="image">
-                    <img src="https://i.postimg.cc/rmZCfrYF/itache-hood.webp">
-                </a>
-                <ul class="product-links">
-                    <li><a href="#" data-tip="Add to Wishlist"><i class="fas fa-heart"></i></a></li>
-                    <li><a href="#" data-tip="Compare"><i class="fa fa-random"></i></a></li>
-                    <li><a href="#" data-tip="Quick View"><i class="fa fa-eye"></i></a></li>
-                </ul>
-            </div>
-            <div class="product-content">
-                <h3 class="title"><a href="#">women's Top</a></h3>
-                <span class="product-category"><a href="#">women's</a></span>
-                <div class="price">$55.55</div>
-                <a href="#" class="add-to-cart"><i class="fas fa-cart-plus"></i> Add to cart</a>
-            </div>
-        </div>
-    </div>
-    <div class="col-md-3 col-sm-6">
-        <div class="product-grid">
-            <div class="product-image">
-                <a href="#" class="image">
-                    <img src="https://i.postimg.cc/rmZCfrYF/itache-hood.webp">
-                </a>
-                <ul class="product-links">
-                    <li><a href="#" data-tip="Add to Wishlist"><i class="fas fa-heart"></i></a></li>
-                    <li><a href="#" data-tip="Compare"><i class="fa fa-random"></i></a></li>
-                    <li><a href="#" data-tip="Quick View"><i class="fa fa-eye"></i></a></li>
-                </ul>
-            </div>
-            <div class="product-content">
-                <h3 class="title"><a href="#">women's Top</a></h3>
-                <span class="product-category"><a href="#">women's</a></span>
-                <div class="price">$55.55</div>
-                <a href="#" class="add-to-cart"><i class="fas fa-cart-plus"></i> Add to cart</a>
-            </div>
-        </div>
-    </div>
-    <div class="col-md-3 col-sm-6">
-        <div class="product-grid">
-            <div class="product-image">
-                <a href="#" class="image">
-                    <img src="https://i.postimg.cc/rmZCfrYF/itache-hood.webp">
-                </a>
-                <ul class="product-links">
-                    <li><a href="#" data-tip="Add to Wishlist"><i class="fas fa-heart"></i></a></li>
-                    <li><a href="#" data-tip="Compare"><i class="fa fa-random"></i></a></li>
-                    <li><a href="#" data-tip="Quick View"><i class="fa fa-eye"></i></a></li>
-                </ul>
-            </div>
-            <div class="product-content">
-                <h3 class="title"><a href="#">women's Top</a></h3>
-                <span class="product-category"><a href="#">women's</a></span>
-                <div class="price">$55.55</div>
-                <a href="#" class="add-to-cart"><i class="fas fa-cart-plus"></i> Add to cart</a>
-            </div>
-        </div>
-    </div>
-    <div class="col-md-3 col-sm-6">
-        <div class="product-grid">
-            <div class="product-image">
-                <a href="#" class="image">
-                    <img src="https://i.postimg.cc/rmZCfrYF/itache-hood.webp">
-                </a>
-                <ul class="product-links">
-                    <li><a href="#" data-tip="Add to Wishlist"><i class="fas fa-heart"></i></a></li>
-                    <li><a href="#" data-tip="Compare"><i class="fa fa-random"></i></a></li>
-                    <li><a href="#" data-tip="Quick View"><i class="fa fa-eye"></i></a></li>
-                </ul>
-            </div>
-            <div class="product-content">
-                <h3 class="title"><a href="#">women's Top</a></h3>
-                <span class="product-category"><a href="#">women's</a></span>
-                <div class="price">$55.55</div>
-                <a href="#" class="add-to-cart"><i class="fas fa-cart-plus"></i> Add to cart</a>
-            </div>
-        </div>
-    </div>
-    <div class="col-md-3 col-sm-6">
-        <div class="product-grid">
-            <div class="product-image">
-                <a href="#" class="image">
-                    <img src="https://i.postimg.cc/rmZCfrYF/itache-hood.webp">
-                </a>
-                <ul class="product-links">
-                    <li><a href="#" data-tip="Add to Wishlist"><i class="fas fa-heart"></i></a></li>
-                    <li><a href="#" data-tip="Compare"><i class="fa fa-random"></i></a></li>
-                    <li><a href="#" data-tip="Quick View"><i class="fa fa-eye"></i></a></li>
-                </ul>
-            </div>
-            <div class="product-content">
-                <h3 class="title"><a href="#">women's Top</a></h3>
-                <span class="product-category"><a href="#">women's</a></span>
-                <div class="price">$55.55</div>
-                <a href="#" class="add-to-cart"><i class="fas fa-cart-plus"></i> Add to cart</a>
-            </div>
-        </div>
-    </div>
-    
-    <div class="col-md-3 col-sm-6">
-        <div class="product-grid">
-            <div class="product-image">
-                <a href="#" class="image">
-                    <img src="https://i.postimg.cc/rmZCfrYF/itache-hood.webp">
-                </a>
-                <ul class="product-links">
-                    <li><a href="#" data-tip="Add to Wishlist"><i class="fas fa-heart"></i></a></li>
-                    <li><a href="#" data-tip="Compare"><i class="fa fa-random"></i></a></li>
-                    <li><a href="#" data-tip="Quick View"><i class="fa fa-eye"></i></a></li>
-                </ul>
-            </div>
-            <div class="product-content">
-                <h3 class="title"><a href="#">Men's Blazer</a></h3>
-                <span class="product-category"><a href="#">Men's</a></span>
-                <div class="price">$79.99</div>
-                <a href="#" class="add-to-cart"><i class="fas fa-cart-plus"></i> Add to cart</a>
             </div>
         </div>
     </div>
@@ -166,13 +23,94 @@
 
 <script>
 export default {
-
-}
+  components: {
+  
+  },
+  data() {
+    return {
+      product: null,
+      search: "",
+      isModalVisible: false,
+      isadmin: false,
+      selected: "",
+    };
+  },
+  methods: {
+   
+  },
+  mounted() {
+    fetch("https://ecomsbackend.herokuapp.com/products", {
+      method: "GET",
+      headers: {
+        "Content-type": "application/json; charset=UTF-8",
+      },
+    })
+      .then((response) => response.json())
+      .then((json) => {
+        this.product = json;
+        if (localStorage.getItem("jwt")) {
+          fetch("https://ecomsbackend.herokuapp.com/auth/", {
+            method: "GET",
+            headers: {
+              "Content-type": "application/json; charset=UTF-8",
+              Authorization: `x-access-token ${localStorage.getItem("jwt")}`,
+            },
+          })
+            .then((response) => response.json())
+            .then((json) => {
+              if (json.isadmin == true) {
+                alert("You are admin");
+                this.isadmin = json.isadmin;
+              }
+            })
+            .catch((err) => {
+              alert(err);
+            });
+        }
+      })
+      .catch((err) => {
+        alert(err);
+        console.log(err);
+      });
+  },
+  computed: {
+    filterProducts: function () {
+      let filtered = this.product
+      if (this.selected == '') {
+          filtered = filtered.filter((product) => {
+           return product.category.match(this.selected) ;
+          
+        });
+        if(this.search){
+          filtered = filtered.filter((product) =>{
+            return product.title.match(this.search)
+          })
+        }
+        return filtered
+      }
+      if (this.selected) {
+        filtered = filtered.filter((product) => {
+           return product.category.match(this.selected) ;
+          
+        });
+        if(this.search){
+          filtered = filtered.filter((product) =>{
+            return product.title.match(this.search)
+          })
+        }
+        return filtered
+        
+      }
+  
+      
+    },
+  },
+};
 </script>
 
 <style scoped >
 .row {
-    padding: 60px;
+    padding: 80px;
 }
 .product-grid{
     font-family: 'Montserrat', sans-serif;
@@ -300,7 +238,7 @@ export default {
 .product-grid .add-to-cart:hover,
 .product-grid:hover .add-to-cart{
     color: #fff;
-    background: #c6202e;
+    background: #89d8f0;
     border-color: #c6202e;
 }
 @media screen and (max-width: 990px){
@@ -308,85 +246,5 @@ export default {
 }
 
 
-/* .row {
-    padding: 60px;
-}
-.product-grid{
-    font-family: 'Montserrat', sans-serif;
-    text-align: center;
-    padding-left: 7% ;
-    padding-right:7% ;
-}
-.product-grid .product-image{ position: relative; }
-.product-grid .product-image a.image{display: block; }
-.product-grid .product-image img{
-    width: 100%;
-    height: auto;
-    transition: all 0.3s ease 0s;
-}
-.product-grid:hover .product-image img{
-    border-radius: 100px;
-    box-shadow: 0 0 20px -10px rgba(0,0,0,0.6);
-}
-.product-grid .product-content{  padding: 20px 10px 0; }
-.product-grid .title{
-    font-size: 19px;
-    font-weight: 500;
-    text-transform: uppercase;
-    margin: 0 0 10px;
-}
-.product-grid .title a{
-    color: #7e8485;
-    transition: all 0.3s ease 0s;
-}
-.product-grid .title a:hover{ color: #acbfa3; }
-.product-grid .product-category{
-    font-size: 14px;
-    text-transform: capitalize;
-    margin: 0 0 10px;
-    display: block;
-}
-.product-grid .product-category a{
-    color: #666;
-    transition: all 0.3s ease 0s;
-}
-.product-grid .product-category a:hover{ color: #999; }
-.product-grid .price{
-    color: #4b5354;
-    font-size: 14px;
-    font-weight: 700;
-    margin: 0 0 15px;
-}
-.product-grid .add-to-cart{
-    color: #b8a398;
-    background: #fff;
-    font-size: 16px;
-    font-weight: 700;
-    text-transform: uppercase;
-    padding: 10px 25px 8px;
-    border: 2px solid #b8a398;
-    display: inline-block;
-    position: relative;
-    z-index: 1;
-    transition: all 0.3s ease-in-out;
-}
-.product-grid .add-to-cart:hover{
-    color: #fff;
-    border-color: #b8a398;
-}
-.product-grid .add-to-cart:before{
-    content:"";
-    background: #b8a398;
-    width: 0;
-    height: 100%;
-    position: absolute;
-    top: 0;
-    left: 0;
-    z-index: -1;
-    transition: all 0.3s ease-in-out;
-}
-.product-grid .add-to-cart:hover:before{ width: 100%; }
-@media screen and (max-width: 990px){
-    .product-grid{ margin-bottom: 30px; }
-} */
+
 </style>

@@ -1,10 +1,10 @@
 <template>
   <!-- Remove the container if you want to extend the Footer to full width. -->
-<div class="container my-5">
+<!-- <div class="container my-5"> -->
 
-  <section class="">
+  <section class="something">
   <!-- Footer -->
-  <footer class="text-center text-white" style="background-color: #0a4275;">
+  <footer class="text-center text-white" style="background-color: #89d8f0;">
     <!-- Grid container -->
     <div class="container p-4 pb-0">
       <!-- Section: CTA -->
@@ -12,7 +12,7 @@
         <p class="d-flex justify-content-center align-items-center">
           <span class="me-3">Register for free</span>
           <button type="button" class="btn btn-outline-light btn-rounded">
-            Sign up!
+            Sign up !
           </button>
         </p>
       </section>
@@ -23,14 +23,13 @@
     <!-- Copyright -->
     <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
       © 2020 Copyright:
-      <a class="text-white" href="https://mdbootstrap.com/">MDBootstrap.com</a>
     </div>
     <!-- Copyright -->
   </footer>
   <!-- Footer -->
 </section>
   
-</div>
+<!-- </div> -->
 <!-- End of .container -->
 </template>
 
@@ -41,5 +40,8 @@ export default {
 </script>
 
 <style>
-
+.something{
+    padding-top: 50px;
+    
+}
 </style>

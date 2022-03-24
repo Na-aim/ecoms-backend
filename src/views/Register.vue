@@ -4,51 +4,136 @@
 		<div class="logo">
 			<h1>#</h1>
 		</div>
-		<form action="#">
-            <input type="email" placeholder="email" autocomplete="off" required>	<i class="fa fa-envelope"></i>
-
-			<input type="username" placeholder="username" autocomplete="off" required>	<i class="fa fa-user"></i>
-
-			<input type="password" placeholder="password" autocomplete="off" required>	<i class="fa fa-lock"></i>
-
-			<input type="submit" value="Register">
-			<h4>Not Registered?<a href="#"> Create an Account</a></h4>
-		</form>
-	</div>
-</div>
+		<Form @submit="handleRegister">
+          <div v-if="!successful">
+            <div class="form-group">
+              <label for="username"></label>
+			  <i class="fa fa-user"></i>
+              <Field
+                name="username"
+                placeholder="Username"
+                class="form-control"
+				type="username"
+				
+              />
+              <ErrorMessage name="fullname" class="error-feedback" />
+            </div>
+            <div class="form-group">
+              <label for="email"></label>
+			  <i class="fa fa-lock"></i>
+              <Field
+                name="email"
+                placeholder="email address"
+                class="form-control"
+                type="email"
+              />
+              <ErrorMessage name="email" class="error-feedback" />
+            </div>
+            <div class="form-group">
+              <label for="password"></label>
+			  
+              <Field
+                name="password"
+                class="form-control"
+                placeholder="Password"
+                type="password"
+              />
+              <ErrorMessage name="password" class="error-feedback" />
+            </div>
+            <button class="btn btn-primary btn-" :disabled="loading">
+              <span
+                v-show="loading"
+                class="spinner-border spinner-border-sm"
+              ></span>
+              <span>Register</span>
+            </button>
+            <br />
+            <p style="color: black" class="login">
+              Already a member? <a href="/login">Sign In</a>
+            </p>
+          </div>
+        </Form>
+        <div
+          v-if="message"
+          class="alert"
+          :class="successful ? 'alert-success' : 'alert-danger'"
+        >
+          {{ message }}
+        </div>
+      </div>
+    </div>
 </template>
 
 <script>
+import { Form, Field, ErrorMessage } from "vee-validate";
+import * as yup from "yup";
 export default {
+  name: "Register",
+  components: {
+    Form,
+    Field,
+    ErrorMessage,
+  },
   data() {
+    const schema = yup.object().shape({
+      username: yup
+        .string()
+        .required("username is required!")
+        .min(3, "Must be at least 3 characters!")
+        .max(20, "Must be maximum 20 characters!"),
+      email: yup
+        .string()
+        .required("Email is required!")
+        .email("Email is invalid!")
+        .max(50, "Must be maximum 50 characters!"),
+      password: yup
+        .string()
+        .required("Password is required!")
+        .min(6, "Must be at least 6 characters!")
+        .max(40, "Must be maximum 40 characters!"),
+    });
     return {
-      username: "",
-      email: "",
-      password: "",
+      successful: false,
+      loading: false,
+      message: "",
+      schema,
     };
   },
+  computed: {
+    loggedIn() {
+      return this.$store.state.auth.status.loggedIn;
+    },
+  },
+  mounted() {
+    if (this.loggedIn) {
+      this.$router.push("/login");
+    }
+  },
   methods: {
-    register() {
-      fetch("https://ecomsbackend.herokuapp.com/users", {
-        method: "POST",
-        body: JSON.stringify({
-          name: this.name,
-          email: this.email,
-          password: this.password,
-        }),
-        headers: {
-          "Content-type": "application/json; charset=UTF-8",
+    handleRegister(user) {
+      console.log("Successfully registered");
+      this.message = "";
+      this.successful = false;
+      this.loading = true;
+      this.$store.dispatch("auth/register", user).then(
+        (data) => {
+          console.log(data);
+          this.message = data.message;
+          this.successful = true;
+          this.loading = false;
         },
-      })
-        .then((response) => response.json())
-        .then((json) => {
-          alert("User registered");
-          localStorage.setItem("jwt", json.jwt);
-          this.$router.push({ name: "Login" });
-        })
-        .catch((err) => {
-          alert(err);
-        });
+        (error) => {
+          console.log(error.message);
+          this.message =
+            (error.response &&
+              error.response.data &&
+              error.response.data.message) ||
+            error.message ||
+            error.toString();
+          this.successful = false;
+          this.loading = false;
+        }
+      );
     },
   },
 };
@@ -82,17 +167,17 @@ export default {
 	-o-transition: 200ms ease-in-out;
 	transition: 200ms ease-in-out;
 	-webkit-animation: rotation 10s infinite linear;
-	-webkit-box-shadow: 0 0 100px #fa3380;
-	        box-shadow: 0 0 100px #fa3380;
-	background: #f857a6;  
-	background: -webkit-linear-gradient(to right, #ff5858, #f857a6);  
-	background: linear-gradient(to right, #ff5858, #f857a6); 
+	-webkit-box-shadow: 0 0 100px #89d8f0;
+	        box-shadow: 0 0 100px #89d8f0;
+	background: #89d8f0;  
+	background: -webkit-linear-gradient(to right, #1C86EE, #89d8f0);  
+	background: linear-gradient(to right, #1C86EE, #89d8f0); 
 
 }
 .logo:hover {
 	-webkit-animation: rotation 0.9s infinite linear;
-	-webkit-box-shadow: 0 0 10px #fa3380;
-	        box-shadow: 0 0 10px #fa3380;
+	-webkit-box-shadow: 0 0 10px #1C86EE;
+	        box-shadow: 0 0 10px #1C86EE;
 }
 .logo h1 {
 	color: #fff;
@@ -115,25 +200,25 @@ form h4 {
 }
 
 h4 a {
-	color: #fa3380;
+	color: #89d8f0;
 	font-weight: bold;
 	text-decoration: none;
 	transition: 200ms ease-in-out;
 }
 h4 a:hover {
-	color: #000;
+	color: #1C86EE;
 }
 input[type='username'], input[type='password'] , input[type='email']{
 	width: 60%;
 	outline: none;
 	border-top: 0;
-	color: #fa3380;
+	color: #1C86EE;
 	border-left: 0;
 	border-right: 0;
 	font-size: 14px;
 	padding: 26px;
 	font-weight: 300;
-	border-bottom: 1px solid #fa3380;
+	border-bottom: 1px solid #89d8f0;
 }
 
 
@@ -148,20 +233,20 @@ input[type='submit'] {
 	margin-top: 50px;
 	border-radius: 4px;
 	transition: 200ms ease-out;
-	-webkit-box-shadow: 0 0 10px #fa3380;
-	        box-shadow: 0 0 10px #fa3380;
-	background: #f857a6; 
-	background: -webkit-linear-gradient(to right, #ff5858, #f857a6);  
-	background: linear-gradient(to right, #ff5858, #f857a6); 
+	-webkit-box-shadow: 0 0 10px #89d8f0;
+	        box-shadow: 0 0 10px #89d8f0;
+	background: #89c8f0; 
+	background: -webkit-linear-gradient(to right, #89e0f0, #1C86EE);  
+	background: linear-gradient(to right, #89e0f0, #1C86EE); 
 }
 input[type='submit']:hover {
 	width: 155px;
 	height: 52px;
 	transform: scale(1.1);
-	box-shadow: 0 0 40px #fa3380;
+	box-shadow: 0 0 40px #89d8f0;
 }
 .fa-envelope {
-	color: #fa3380;
+	color: #89d8f0;
   position: absolute;
   top: 195px;
   left: 56px;
@@ -170,7 +255,7 @@ input[type='submit']:hover {
   transition: .2s ease-out;
 }
 .fa-user {
-	color: #fa3380;
+	color: #89d8f0;
   position: absolute;
   top: 25px;
   left: 56px;
@@ -180,7 +265,7 @@ input[type='submit']:hover {
 }
 
 .fa-lock {
-	color: #fa3380;
+	color: #89d8f0;
   position: absolute;
   top: 105px;
   left: 56px;
@@ -188,19 +273,19 @@ input[type='submit']:hover {
   cursor: text;
   transition: .2s ease-out;
 }
-.fa-redo {
-	color: #fa3380;
+/* .fa-redo {
+	color: #89d8f0;
   position: absolute;
   top: 185px;
   left: 56px;
   font-size: 18px !important;
   cursor: text;
   transition: .2s ease-out;
-}
+} */
 
 
 [placeholder]::-webkit-input-placeholder  {
-	color: #fa3380;
+	color: #89d8f0;
 	padding-left: 10px;
 }
 [placeholder]:focus::-webkit-input-placeholder {

@@ -49,5 +49,16 @@ const router = createRouter({
   history: createWebHistory(process.env.BASE_URL),
   routes
 })
+router.beforeEach((to, from, next) => {
+  const publicPages = ['/Login','/Register','/',];
+  const authRequired = !publicPages.includes(to.path);
+  const loggedIn = localStorage.getItem('user');
+
+  if (authRequired && !loggedIn) {
+    next('/Login');
+  } else {
+    next();
+  }
+});
 
 export default router
