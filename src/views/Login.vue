@@ -4,6 +4,7 @@
 		<div class="logo">
 			<h1>#</h1>
 		</div>
+		<!-- Login Form -->
 		<Form @submit="handleLogin" :validation-schema="schema">
  
         <div class="form-group">
