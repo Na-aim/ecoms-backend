@@ -1,5 +1,35 @@
 <template>
 
+
+      <div class="row">
+        <div class="col-4">
+          <select
+            v-model="selected"
+            class="form-select"
+            aria-label="Default select example">
+            <option selected value="">Display All</option>
+            <option value="Naruto">Naruto</option>
+            <option value="Attack On Tittan">Attack On Tittan</option>
+            <option value="Jujutsu Kaisen">Jujutsu Kaisen</option>
+            <option value="Dragon Ball">Dragon Ball</option>
+            <option value="Demon Slayer">Demon Slayer</option>
+            <option value="One Piece">One Piece</option>
+          </select>
+        </div>
+                <div class="col-4">
+          <form class="d-flex">
+            <input
+              class="form-control me-2"
+              type="text"
+              v-model="search"
+              placeholder="Search"
+              aria-label="Search"
+            />
+          </form>
+        </div>
+        <br><br>
+        <div class="col-4"></div>
+    </div>
  <div class="row" >
     <div class="col-md-3 col-sm-6" v-for="product in content" :key="product._id">
         <div class="product-grid" >
@@ -51,12 +81,43 @@ export default {
       }
     );
   },
+ computed: {
+    filterProducts: function () {
+      let filtered = this.product
+      if (this.selected == '') {
+          filtered = filtered.filter((product) => {
+           return product.category.match(this.selected) ;
+          
+        });
+        if(this.search){
+          filtered = filtered.filter((product) =>{
+            return product.title.match(this.search)
+          })
+        }
+        return filtered
+      }
+      if (this.selected) {
+        filtered = filtered.filter((product) => {
+           return product.category.match(this.selected) ;
+          
+        });
+        if(this.search){
+          filtered = filtered.filter((product) =>{
+            return product.title.match(this.search)
+          })
+        }
+        return filtered
+        
+      } 
+    },
+  },
 };
+
 </script>
 
 <style scoped >
 .row {
-    padding: 80px;
+    padding: 60px;
 }
 .product-grid{
     font-family: 'Montserrat', sans-serif;

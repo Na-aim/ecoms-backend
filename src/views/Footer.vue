@@ -41,7 +41,7 @@ export default {
 
 <style>
 .something{
-    padding-top: 50px;
+    padding-top: 70px;
     
 }
 </style>
