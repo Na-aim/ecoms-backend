@@ -1,9 +1,13 @@
 <template>
   <div class="containerers">
     <div class="card">
-
+       <div class="img-name">
+        <img
+          src="https://p7.hiclipart.com/preview/304/305/226/web-development-computer-icons-avatar-business-user-profile.jpg"
+          alt="profilna"
+        />
         <h2>{{ currentUser.username }}</h2>
-      
+       </div>
       <div class="followers">
         <p>
           <strong>Token:</strong>
@@ -59,7 +63,59 @@ export default {
   margin-right: auto;
   border: 3px solid #89d8f0;
   background: #1C86EE;
-  color: white;
+  color: rgb(255, 255, 255);
+  -webkit-box-shadow: 0 0 50px #89d8f0;
+	        box-shadow: 0 0 50px #89d8f0;
+}
+.img-name {
+  width: 100%;
+  height: 210px;
+  margin-left: auto;
+  margin-right: auto;
+  border-bottom: 5px solid #89d8f0;
+  padding-top: 10px;
+}
+.img-name img {
+  display: block;
+  width: 140px;
+  height: 140px;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 70px;
+  border: 5px solid #89d8f0;
+  background-color: rgb(234, 241, 247);
+}
+.auth {
+  text-align: center;
+  text-decoration: none;
+  list-style: none;
+}
+.img-name h2 {
+  text-align: center;
+}
+.followers {
+  height: 140px;
+  padding-top: 50px;
+  text-align: center;
+}
+.followers h3 {
+  text-align: center;
+}
+.button-follow {
+  height: 40px;
+}
+.button-follow button {
+  display: block;
+  width: 200px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 16px;
+  background-color: rgb(182, 182, 233);
+  border-radius: 10px;
+  font-size: 18px;
+}
+.button-follow button:hover {
+  background-color: rgb(180, 180, 226);
 }
 
 </style>

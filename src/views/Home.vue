@@ -4,9 +4,14 @@
 <div class="text-effect">
     <span>Weeb Store</span>
 </div>
- <button class="btnbtn" >Shop now!</button>
+<div class="container">
+  <img src="https://i.postimg.cc/hjB4LMXN/Anime-Crossover-by-Legendary-Rey-on-Deviant-Art-1.png" alt="" style="width:100%;">
+  <div class="content">
+ <button class="btnbtn" >Shop now</button>
 <p>Weeb Store is the place where worlds collide.<br>
 Explore over a fine collection of anime merchandise to redefine your style with us, while we turn a purchase into a smile with you...</p>
+</div>
+</div>
 </div>
 
 
@@ -66,6 +71,22 @@ export default {
 
 
 <style scoped>
+.container {
+  position: relative;
+  max-width: auto;
+  margin: 0 auto;
+}
+.container img {vertical-align: middle;}
+
+.container .content {
+  position: absolute;
+  bottom: 0;
+  background: rgb(0, 0, 0); /* Fallback color */
+  background: rgba(0, 0, 0, 0.3); /* Black background with 0.5 opacity */
+  color: #f1f1f1;
+  width: 99%;
+  padding: 7px;
+}
 .middle {
   padding-top: 80px;
 }
@@ -124,8 +145,8 @@ export default {
 	background: linear-gradient(to right, #89e0f0, #1C86EE); 
 }
 .btnbtn  {
-	width: 155px;
-	height: 52px;
+	width: 120px;
+	height: 40px;
 	transform: scale(1.1);
 	box-shadow: 0 0 40px #89d8f0;
 }

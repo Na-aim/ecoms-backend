@@ -81,7 +81,7 @@ export default {
       }
     );
   },
- computed: {
+    computed: {
     filterProducts: function () {
       let filtered = this.product
       if (this.selected == '') {
@@ -103,7 +103,7 @@ export default {
         });
         if(this.search){
           filtered = filtered.filter((product) =>{
-            return product.title.match(this.search)
+            return product.anime.match(this.search)
           })
         }
         return filtered

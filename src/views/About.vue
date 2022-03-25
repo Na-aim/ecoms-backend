@@ -4,7 +4,7 @@
     <span>About us</span>
 </div>
 <div class="container">
-  <img src="https://i.postimg.cc/ncB9GjbR/Anime-Express-Banner.webp" alt="" style="width:100%;">
+  <img src="https://i.postimg.cc/d1KPShtk/download-2.jpg" alt="" style="width:100%;">
   <div class="text-block">
 <div class="contentp">
 <p>Welcome to Weeb Store! We’re a bunch of enthusiastic Anime Fans who decided to convert their passion into an online Weeb Store that free deliver to over 17 countries! All started when we looked for a store that sells the kind of stuff a Weeb whould want and need, especially items related to Ongoing Anime! We couldn’t find it, so we decided to open our own store Weeb-Store by Weebs!</p>
