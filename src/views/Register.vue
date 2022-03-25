@@ -13,7 +13,7 @@
                 name="username"
                 placeholder="Username"
                 class="form-control"
-				type="username"
+			  	    type="username"
 				
               />
               <ErrorMessage name="fullname" class="error-feedback" />
@@ -31,7 +31,7 @@
             </div>
             <div class="form-group">
               <label for="password"></label>
-			  
+			  <i class="fa fa-envelope"></i>
               <Field
                 name="password"
                 class="form-control"
@@ -48,9 +48,9 @@
               <span >Register</span>
             </button>
             <br />
-            <p style="color: black" class="login">
+            <h4 style="color: black" class="login">
               Already a member? <a href="/login">Log In</a>
-            </p>
+            </h4>
           </div>
         </Form>
         <div
@@ -222,7 +222,7 @@ input[type='username'], input[type='password'] , input[type='email']{
 }
 
 
-input[type='submit'] {
+[type='submit'] {
 	color: #fff;
 	width: 150px;
 	height: 50px;
@@ -239,7 +239,7 @@ input[type='submit'] {
 	background: -webkit-linear-gradient(to right, #89e0f0, #1C86EE);  
 	background: linear-gradient(to right, #89e0f0, #1C86EE); 
 }
-input[type='submit']:hover {
+[type='submit']:hover {
 	width: 155px;
 	height: 52px;
 	transform: scale(1.1);

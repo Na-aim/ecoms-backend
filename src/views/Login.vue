@@ -22,7 +22,7 @@
                 </div>
                 <div class="form-group">
                 <div class=" b text-center margin-top-25">
-                    <button class="btn btn-mod btn-border btn-large" :disabled="loading">
+                    <button type="submit" class="btn btn-mod btn-border btn-large" :disabled="loading">
                       LOGIN
                     </button>
 
@@ -168,12 +168,12 @@ h4 a {
 h4 a:hover {
 	color: #1C86EE;
 }
-.Field[name="yourname"], .Field[name="password"] {
+[name="username"], [name="password"] {
 	width: 60%;
 	outline: none;
 	border-top: 0;
 	color: #1C86EE;
-	border-left: 0;
+	border-left: 10px;
 	border-right: 0;
 	font-size: 14px;
 	padding: 26px;
@@ -182,7 +182,8 @@ h4 a:hover {
 }
 
 
-.log {
+
+[type='submit'] {
 	color: #fff;
 	width: 150px;
 	height: 50px;
@@ -199,7 +200,8 @@ h4 a:hover {
 	background: -webkit-linear-gradient(to right, #89e0f0, #1C86EE);  
 	background: linear-gradient(to right, #89e0f0, #1C86EE); 
 }
-.log :hover {
+
+[type='submit'] :hover {
 	width: 155px;
 	height: 52px;
 	transform: scale(1.1);

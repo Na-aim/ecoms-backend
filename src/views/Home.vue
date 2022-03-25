@@ -15,48 +15,58 @@ Explore over a fine collection of anime merchandise to redefine your style with 
 </div>
 
 
+<div class="card-container">
+  
+  <div class="text-effect">
+    <span>Our partners</span>
+</div><br>
+<p>We work with the world's most popular and trusted companies so that you can enjoy safe shopping and fast delivery.</p>
+  <br>
+  <div class="card visa">
+    <p>VISA</p>
+  </div>
+  
+  <div class="card mc">
+    <hr/>
+    <hr/>
+    <hr/>
+    <hr/>
+    <hr/>
+    <p>MasterCard</p>
+  </div>
+  
+  <div class="card amex">
+    <hr/>
+    <hr/>
+    <hr/>
+    <hr/>
+    <hr/>
+    <hr/>
+    <hr/>
+    <hr/>
+    <hr/>
+    <hr/>
+    <hr/>
+    <hr/>
+    <hr/>
+    <hr/>
+    <hr/>
+    <hr/>
+    <svg class='svg' height="100%" width="100%">
+      <text x="9%" y="45%" fill="none" stroke="#fff">AMERICAN</text>
+    </svg>
+    <svg class='svg' height="100%" width="100%">
+      <text x="23%" y="75%" fill="none" stroke="#fff">EXPRESS</text>
+    </svg>
+  </div>
+  
+  <div class="card discover">
+    <p>Discover</p>
+  </div>
+  
+  <div class="card back"><span></span></div>
+</div>
 
-<div class="row">
-<div class="text-effect">
-    <span>best selling products</span>
-</div>
-    <div class="col-md-3 col-sm-6">
-        <div class="product-grid">
-            <div class="product-image">
-                <a href="#" class="image">
-                    <img src="https://i.postimg.cc/g0YMZws0/Tengen-Uzui-Hoodie-5-Color-Variants.jpg">
-                </a>
-            </div>
-        </div>
-    </div>
-    <div class="col-md-3 col-sm-6">
-        <div class="product-grid">
-            <div class="product-image">
-                <a href="#" class="image">
-                    <img src="https://i.postimg.cc/1XSYZ6r0/ANIME-Nike-Air-Force-Custom.jpg">
-                </a>
-            </div>
-        </div>
-    </div>
-    <div class="col-md-3 col-sm-6">
-        <div class="product-grid">
-            <div class="product-image">
-                <a href="#" class="image">
-                    <img src="https://i.postimg.cc/fyFt97qm/Itachi-V2-LINK-IN-BIO-DROPED-NOW.jpg">
-                </a>
-            </div>
-        </div>
-    </div>
-    <div class="col-md-3 col-sm-6">
-        <div class="product-grid">
-            <div class="product-image">
-                <a href="#" class="image">
-                    <img src="https://i.postimg.cc/rmZCfrYF/itache-hood.webp">
-                </a>
-            </div>
-        </div>
-    </div>
-</div>
     
 
 
@@ -156,42 +166,282 @@ p{
 }
 
 
-.product-grid{
-    font-family: 'Montserrat', sans-serif;
-    text-align: center;
-}
-.product-grid .product-image{ position: relative; }
-.product-grid .product-image a.image{display: block; }
-.product-grid .product-image img{
-    width: 100%;
-    height: auto;
-    transition: all 0.3s ease 0s;
-}
-.product-grid:hover .product-image img{
-    border-radius: 100px;
-    box-shadow: 0 0 20px -10px rgba(0,0,0,0.6);
-}
-.product-grid .product-content{  padding: 20px 10px 0; }
-.product-grid .title{
-    font-size: 19px;
-    font-weight: 500;
-    text-transform: uppercase;
-    margin: 0 0 10px;
-}
-.product-grid .title a{
-    color: #7e8485;
-    transition: all 0.3s ease 0s;
-}
-.product-grid .title a:hover{ color: #acbfa3; }
-.product-grid .product-category{
-    font-size: 14px;
-    text-transform: capitalize;
-    margin: 0 0 10px;
-    display: block;
+@import url(https://fonts.googleapis.com/css?family=Roboto:400,100,900);
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:400italic,700italic,800italic,400);
+@import url(https://fonts.googleapis.com/css?family=Bevan);
+html,
+body {
+  box-sizing: border-box;
+  height: 100%;
+  width: 100%;
 }
 
-.product-grid .add-to-cart:hover:before{ width: 100%; }
-@media screen and (max-width: 990px){
-    .product-grid{ margin-bottom: 30px; }
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+
+.card-container {
+padding-top: 100px;
+}
+@media (min-width: 25.625em) {
+  .card-container {
+    font-size: 0.4rem;
+  }
+}
+@media (min-width: 47.5em) {
+  .card-container {
+    font-size: 0.75rem;
+  }
+}
+@media (min-width: 60.625em) {
+  .card-container {
+    font-size: 1rem;
+  }
+}
+
+h1 {
+  color: #fff;
+  font-family: "Bevan", cursive;
+  font-size: 4.75em;
+  font-weight: normal;
+  margin: 0 0 0.5em;
+  text-align: center;
+  text-shadow: 0.013em 0.039em 0.132em rgba(0, 0, 0, 0.6);
+  text-transform: uppercase;
+}
+
+.card {
+  background: #fff;
+  border-radius: 0.25em;
+  box-shadow: 0 0.039em 0.132em rgba(0, 0, 0, 0.4);
+  display: inline-block;
+  font-size: 1em;
+  height: 3em;
+  overflow: hidden;
+  position: relative;
+  margin-right: 1em;
+  vertical-align: middle;
+  width: 5em;
+}
+.card:nth-of-type(5) {
+  margin-right: 0;
+}
+
+.visa {
+  font-family: "Open Sans", sans-serif;
+  font-size: 2em;
+  font-style: italic;
+  font-weight: 800;
+  padding: 0.05em;
+  z-index: 0;
+}
+.visa:before, .visa:after {
+  background: #00579F;
+  border-top-left-radius: 0.25em;
+  border-top-right-radius: 0.25em;
+  content: "";
+  display: block;
+  height: 0.75em;
+  left: 50%;
+  position: absolute;
+  top: 1.75%;
+  transform: translate(-50%, 0);
+  width: 96%;
+  z-index: 200;
+}
+.visa:after {
+  background: #FBA31B;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+  border-bottom-left-radius: 0.25em;
+  border-bottom-right-radius: 0.25em;
+  bottom: 1.75%;
+  top: auto;
+}
+.visa p {
+  color: #00579F;
+  line-height: 3em;
+  position: relative;
+}
+.visa p:after {
+  border-top: 0.1em solid transparent;
+  border-bottom: 0.1em solid transparent;
+  border-left: 0.4em solid #FBA31B;
+  border-radius: 0.0625em;
+  content: "";
+  display: block;
+  height: 0;
+  left: 25.5%;
+  position: absolute;
+  top: 37.25%;
+  transform: rotateZ(189deg);
+  width: 0;
+  z-index: 600;
+}
+
+.mc {
+  background: #0059B3;
+  font-size: 2em;
+}
+.mc:before, .mc:after {
+  background: #EF3526;
+  border-radius: 50%;
+  content: "";
+  display: block;
+  height: 2em;
+  left: 35%;
+  position: absolute;
+  top: 50%;
+  width: 2em;
+  transform: translate(-50%, -50%);
+  z-index: 200;
+}
+.mc:after {
+  background: #FCB836;
+  left: 65%;
+}
+.mc hr {
+  background: #EF3526;
+  border: none;
+  border-top-right-radius: 0.25em;
+  height: 0.14em;
+  margin: 0.14em auto;
+  position: relative;
+  top: 25%;
+  width: 0.65em;
+  z-index: 600;
+}
+.mc hr:nth-of-type(1), .mc hr:nth-of-type(5) {
+  transform: translate(-28%, 0);
+}
+.mc hr:nth-of-type(2), .mc hr:nth-of-type(4) {
+  transform: translate(-10%, 0);
+}
+.mc hr:nth-of-type(4), .mc hr:nth-of-type(5) {
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0.25em;
+}
+.mc hr:nth-of-type(3) {
+  border-top-right-radius: 4;
+  border-bottom-right-radius: 0.25em;
+}
+.mc p {
+  color: #fff;
+  font-size: 0.63em;
+  font-weight: 600;
+  line-height: 1.5em;
+  position: relative;
+  text-shadow: 0.0625em 0.0625em 0.0625em black;
+  top: -0.8em;
+  z-index: 600;
+}
+
+.amex {
+  background: #0971bc;
+  background-image: radial-gradient(top left, circle farthest-corner, #7ecdf2, #0971bc 60%);
+  font-size: 2em;
+  font-weight: 900;
+}
+.amex hr {
+  border: none;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+  margin: 0.15em 0;
+}
+.amex .svg {
+  color: #FFF;
+  font-size: 0.8em;
+  left: 0;
+  position: absolute;
+  top: 0;
+  stroke-width: 1;
+}
+
+.discover {
+  font-size: 2em;
+}
+.discover:after {
+  border-top: 0.75em solid transparent;
+  border-bottom: 0 solid transparent;
+  border-right: 1.75em solid #FF7800;
+  bottom: 0;
+  content: "";
+  height: 0;
+  position: absolute;
+  right: 0;
+  width: 0;
+}
+.discover p {
+  font-size: 0.75em;
+  font-weight: bold;
+  letter-spacing: 0.0625em;
+  line-height: 4em;
+  position: relative;
+  text-transform: uppercase;
+}
+.discover p:after {
+  background: #FF7800;
+  border-radius: 50%;
+  content: "";
+  display: block;
+  height: 0.85em;
+  left: 3.11em;
+  position: absolute;
+  top: 1.5em;
+  width: 0.85em;
+}
+@media (min-width: 25.625em) {
+  .discover p:after {
+    top: 1.59em;
+  }
+}
+
+.back {
+  background: #ccc;
+  font-size: 2em;
+  padding: 0.5em 0.12em;
+}
+.back:before {
+  background: #333;
+  content: "";
+  display: block;
+  height: 0.6em;
+  width: 100%;
+}
+.back:after {
+  background: #333;
+  border: 0.2em solid #fff;
+  content: "";
+  display: block;
+  height: 0.55em;
+  margin-left: 0.2em;
+  margin-top: 0.28em;
+  width: 55%;
+}
+.back span {
+  background: #333;
+  border: 0.15em solid #fff;
+  display: block;
+  height: 0.43em;
+  margin-left: 0.2em;
+  margin-top: 0.5em;
+  position: absolute;
+  right: 0.65em;
+  top: 0.95em;
+  width: 0.55em;
+  z-index: 0;
+}
+.back span:before {
+  border: 0.15em solid red;
+  border-radius: 50%;
+  content: "";
+  height: 0.95em;
+  left: -0.35em;
+  position: absolute;
+  top: -0.4em;
+  width: 0.95em;
+  z-index: 600;
 }
 </style>
