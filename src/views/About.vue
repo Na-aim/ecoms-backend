@@ -16,36 +16,30 @@
 </div>
 </div>
 </div>
-<h1>UL icon cards</h1>
+<div class="boxed">
+   <h1>OUR CORE VALUES</h1>
 <ul>
     <li style="--accent-color:#60c5a6">
         <div class="icon"><i class="fa-brands fa-codepen"></i></div>
-        <div class="title">Codepen</div>
-        <div class="descr">Lorem ipsum dolor sit amet consectetur adipisicing elit. Soluta, impedit?</div>
+        <div class="title">Be Adventurous, Creative, and Open-Minded</div>
     </li>
     <li style="--accent-color:#f20071">
         <div class="icon"><i class="fa-brands fa-html5"></i></div>
-        <div class="title">HTML 5</div>
-        <div class="descr">Lorem ipsum dolor sit amet consectetur adipisicing elit.</div>
+        <div class="title">Create Long-Term Relationships with Our Customers</div>
     </li>
     <li style="--accent-color:#FCBA35">
         <div class="icon"><i class="fa-brands fa-css3"></i></div>
-        <div class="title">CSS 3</div>
-        <div class="descr">Lorem ipsum dolor sit.</div>
+        <div class="title">Pursue Growth and Learning</div>
     </li>
     <li style="--accent-color:#DAE438">
         <div class="icon"><i class="fa-brands fa-js"></i></div>
-        <div class="title">Javascript</div>
-        <div class="descr">Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor laboriosam odio alias.</div>
+        <div class="title">Inspire Happiness and Positivity</div>
     </li>
     <li style="--accent-color:#994D7F">
         <div class="icon"><i class="fa-brands fa-github"></i></div>
-        <div class="title">Github</div>
-        <div class="descr">Lorem ipsum dolor sit amet consectetur adipisicing elit.</div>
+        <div class="title">Make Sure Our Customers are Pleased</div>
     </li>
-</ul>
-<div class="credits">
-    <a target="_blank" href="https://www.freepik.com/premium-vector/modern-3d-infographic-template-with-5-steps-success_5957879.htm">inspired by</a>
+</ul> 
 </div>
 </template>
 
@@ -121,8 +115,12 @@ h1 {
   text-align: center;
 }
 
+.boxed {
+    padding-top: 50px;
+}
+
 ul {
-  width: min(60rem, 90%);
+  width: min(90rem, 90%);
   margin-inline: auto;
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr));
@@ -153,12 +151,12 @@ ul li .icon {
   display: grid;
   place-items: center;
   color: white;
-  font-size: 2.5rem;
-  border: 0.4rem solid var(--bgColor);
+  font-size: 2.4rem;
+  border: 0.3rem solid #89d8f0;
   border-radius: 50%;
   background: var(--accent-color);
-  box-shadow: -0.5rem 0.5rem 1rem rgba(0, 0, 0, 0.45),
-    inset -0.25rem 0.25rem 0.5rem rgba(0, 0, 0, 0.45);
+  box-shadow: -0.5rem 0.5rem 1rem #89d8f0,
+    inset -0.25rem 0.25rem 0.5rem #89d8f0;
 }
 
 ul li::before {
@@ -182,7 +180,7 @@ ul li::after {
 ul li .title {
   grid-area: title;
   margin-block: 0.5rem;
-  font-size: 1.3rem;
+  font-size: 1.1rem;
   font-weight: 600;
   text-align: center;
   text-transform: uppercase;

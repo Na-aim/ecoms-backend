@@ -4,7 +4,7 @@
 <div class="text-effect">
     <span>Weeb Store</span>
 </div>
- <button >Shop now</button>
+ <button class="btnbtn" >Shop now!</button>
 <p>Weeb Store is the place where worlds collide.<br>
 Explore over a fine collection of anime merchandise to redefine your style with us, while we turn a purchase into a smile with you...</p>
 </div>
@@ -106,6 +106,29 @@ export default {
     .text-effect{ font-size: 27px; }
 }
 
+.btnbtn  {
+	color: #fff;
+	width: 150px;
+	height: 50px;
+	border: none;
+	outline: none;
+	cursor: pointer;
+	font-size: 16px;
+	margin-top: 50px;
+	border-radius: 4px;
+	transition: 200ms ease-out;
+	-webkit-box-shadow: 0 0 10px #89d8f0;
+	        box-shadow: 0 0 10px #89d8f0;
+	background: #89c8f0; 
+	background: -webkit-linear-gradient(to right, #89e0f0, #1C86EE);  
+	background: linear-gradient(to right, #89e0f0, #1C86EE); 
+}
+.btnbtn  {
+	width: 155px;
+	height: 52px;
+	transform: scale(1.1);
+	box-shadow: 0 0 40px #89d8f0;
+}
 
 p{
   font-size: 15px;

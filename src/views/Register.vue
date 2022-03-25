@@ -40,16 +40,16 @@
               />
               <ErrorMessage name="password" class="error-feedback" />
             </div>
-            <button class="btn btn-primary btn-" :disabled="loading">
+            <button type="submit" class="btn btn-primary btn-" :disabled="loading">
               <span
                 v-show="loading"
                 class="spinner-border spinner-border-sm"
               ></span>
-              <span>Register</span>
+              <span >Register</span>
             </button>
             <br />
             <p style="color: black" class="login">
-              Already a member? <a href="/login">Sign In</a>
+              Already a member? <a href="/login">Log In</a>
             </p>
           </div>
         </Form>
