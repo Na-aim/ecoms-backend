@@ -7,7 +7,7 @@
 <div class="container">
   <img src="https://i.postimg.cc/hjB4LMXN/Anime-Crossover-by-Legendary-Rey-on-Deviant-Art-1.png" alt="" style="width:100%;">
   <div class="content">
- <button class="btnbtn" >Shop now</button>
+ <button class="btnbtn" href="{{ ('/Products') }}" >Shop now</button>
 <p>Weeb Store is the place where worlds collide.<br>
 Explore over a fine collection of anime merchandise to redefine your style with us, while we turn a purchase into a smile with you...</p>
 </div>
