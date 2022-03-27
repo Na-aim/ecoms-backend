@@ -3,7 +3,7 @@
     <div class="card">
        <div class="img-name">
         <img
-          src="https://p7.hiclipart.com/preview/304/305/226/web-development-computer-icons-avatar-business-user-profile.jpg"
+          src="https://i.postimg.cc/VN51NPys/man-svgrepo-com-1.png"
           alt="profilna"
         />
         <h2>{{ currentUser.username }}</h2>
